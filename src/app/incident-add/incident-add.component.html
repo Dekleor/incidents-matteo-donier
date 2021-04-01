@@ -12,11 +12,11 @@
 
 <form [formGroup]="newIncident" (ngSubmit)="submitForm()">
   <div class="form-group row">
-    <label for="formTitre">Title</label>
+    <label for="formTitre"> :</label>
     <input type="text" formControlName="titre" id="formTitre">
   </div>
   <div class="form-group row">
-    <label for="formEmail">Email</label>
+    <label for="formEmail">Email :</label>
     <input type="email" formControlName="email" id="formEmail">
   </div>
   <div class="form-group row">
@@ -24,24 +24,24 @@
     <input type="text" formControlName="description" id="formDescription">
   </div>
   <div class="form-group row">
-    <label for="formType">Level</label>
+    <label for="formType">Type :</label>
     <select formControlName="type" id="formType">
-      <option value="BUG">BUG</option>
-      <option value="FATAL">FEATURE</option>
+      <option>BUG</option>
+      <option>FEATURE</option>
     </select>
   </div>
   <div class="form-group row">
-    <label for="formLevel">Level</label>
+    <label for="formLevel">Level :</label>
     <select formControlName="level" id="formLevel">
-      <option value="ERROR">ERROR</option>
-      <option value="FATAL">FATAL</option>
-      <option value="MEDIUM">MEDIUM</option>
-      <option value="MINOR">MINOR</option>
+      <option>ERROR</option>
+      <option>FATAL</option>
+      <option>MEDIUM</option>
+      <option>MINOR</option>
     </select>
   </div>
   <div class="form-group row">
-    <label for="formProgress">Progress</label>
-    <input type="number" formControlName="progress" id="formProgress">
+    <label for="formProgress">Progress :</label>
+    <input type="number" formControlName="progress" id="formProgress" min="1" max="100">
   </div>
 
   <button type="submit">Add</button>

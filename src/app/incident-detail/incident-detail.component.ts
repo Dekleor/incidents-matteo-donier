@@ -24,6 +24,10 @@ export class IncidentDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getIncident();
   }
 
+  closeIncident(): void {
+    this.incident.open = false;
+  }
 }

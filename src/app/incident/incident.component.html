@@ -2,12 +2,9 @@
   <ul>
     <li>Ticket Number: {{incident?.id}}</li>
     <li>Title: {{incident?.titre}}</li>
-    <li>Creator's Email: {{incident?.email}}</li>
     <li>Level: {{incident?.level}}</li>
     <li>Type: {{incident?.type}}</li>
-    <li>Created on: {{incident?.dateCreation}}</li>
-    <li>Progress: {{incident?.progress}}</li>
-    <li>Description: {{incident?.description}}</li>
-  </ul>
-  <button>Close</button>
+    <li>Created on: {{incident?.dateCreation }}</li>
+    </ul>
+  <button [routerLink]="['/incidents', incident.id]">See more</button>
 </div>

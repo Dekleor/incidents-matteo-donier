@@ -8,6 +8,6 @@
     <li>Progress: {{incident?.progress}}</li>
     <li>Description: {{incident?.description}}</li>
   </ul>
-  <button>Close</button>
-
-<button (click)="delete()" class="btn btn-secondary btn-sm">Supprimer ce vol</button>
+<button (click)="closeIncident()" class="btn btn-secondary btn-sm>"></button>
+<button (click)="delete()" class="btn btn-secondary btn-sm">Delete</button>
+<button [routerLink]="['home']" class="btn btn-secondary btn-sm">Back</button>
