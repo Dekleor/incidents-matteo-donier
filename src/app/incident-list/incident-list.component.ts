@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {IncidentHttpService} from '../incident-http.service';
+import {Incident} from '../../model/Incident';
 
 @Component({
   selector: 'app-incident-list',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IncidentListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http: IncidentHttpService) { }
+  allIncidents: Incident[];
+
+  getIncidents():void {
+    this.http.getIncidents().subscribe(foo => this.allIncidents = foo);
+  }
 
   ngOnInit(): void {
+    this.getIncidents();
   }
 
 }

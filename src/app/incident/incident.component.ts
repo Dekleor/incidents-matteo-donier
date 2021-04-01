@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Incident} from '../../model/Incident';
 
 @Component({
   selector: 'app-incident',
@@ -8,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class IncidentComponent implements OnInit {
 
   constructor() { }
+
+  @Input() incident: Incident;
 
   ngOnInit(): void {
   }

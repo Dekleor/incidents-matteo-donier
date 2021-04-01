@@ -1,1 +1,48 @@
-<p>incident-add works!</p>
+<h3>Add ticket</h3>
+<ul *ngIf="submitted">
+  <li *ngIf="newIncident.controls['titre']?.errors?.minLength"> Please enter a title with at least 2 characters</li>
+  <li *ngIf="newIncident.controls['titre']?.errors?.maxLength"> Please enter a title with less than 10 characters</li>
+  <li *ngIf="newIncident.controls['email']?.errors?.required"> Please enter your email address</li>
+  <li *ngIf="newIncident.controls['description']?.errors?.minLength"> Please enter a description with at least 10 characters</li>
+  <li *ngIf="newIncident.controls['description']?.errors?.maxLength"> Please enter a description with less than 100 characters</li>
+  <li *ngIf="newIncident.controls['level']?.errors?.required"> Level is required</li>
+  <li *ngIf="newIncident.controls['type']?.errors?.required"> Type is required</li>
+  <li *ngIf="newIncident.controls['progress']?.errors?.required"> % of progress is required</li>
+</ul>
+
+<form [formGroup]="newIncident" (ngSubmit)="submitForm()">
+  <div class="form-group row">
+    <label for="formTitre">Title</label>
+    <input type="text" formControlName="titre" id="formTitre">
+  </div>
+  <div class="form-group row">
+    <label for="formEmail">Email</label>
+    <input type="email" formControlName="email" id="formEmail">
+  </div>
+  <div class="form-group row">
+    <label for="formDescription">Description</label>
+    <input type="text" formControlName="description" id="formDescription">
+  </div>
+  <div class="form-group row">
+    <label for="formType">Level</label>
+    <select formControlName="type" id="formType">
+      <option value="BUG">BUG</option>
+      <option value="FATAL">FEATURE</option>
+    </select>
+  </div>
+  <div class="form-group row">
+    <label for="formLevel">Level</label>
+    <select formControlName="level" id="formLevel">
+      <option value="ERROR">ERROR</option>
+      <option value="FATAL">FATAL</option>
+      <option value="MEDIUM">MEDIUM</option>
+      <option value="MINOR">MINOR</option>
+    </select>
+  </div>
+  <div class="form-group row">
+    <label for="formProgress">Progress</label>
+    <input type="number" formControlName="progress" id="formProgress">
+  </div>
+
+  <button type="submit">Add</button>
+</form>
