@@ -9,7 +9,9 @@ import {Incident} from '../model/Incident';
 export class IncidentHttpService {
   private apiRoot = 'http://localhost:8080/learn/api/incidents';
 
-  constructor(private http: HttpClient) { }
+
+  constructor(private http: HttpClient) {
+  }
 
   getIncidents(): Observable<Incident[]> {
     return this.http.get<Incident[]>(this.apiRoot);
@@ -21,6 +23,10 @@ export class IncidentHttpService {
 
   addIncident(formValues: Incident): Observable<Incident> {
     return this.http.post<Incident>(this.apiRoot, formValues);
+  }
+
+  updateIncident(id: number, update: boolean): Observable<Incident> {
+    return this.http.put<Incident>(this.apiRoot, update);
   }
 
   deleteIncident(id: number): Observable<undefined> {

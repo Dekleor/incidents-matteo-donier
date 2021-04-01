@@ -11,38 +11,59 @@
 </ul>
 
 <form [formGroup]="newIncident" (ngSubmit)="submitForm()">
-  <div class="form-group row">
-    <label for="formTitre"> :</label>
-    <input type="text" formControlName="titre" id="formTitre">
+
+  <div class="input-group mb-1">
+    <div class="input-group-prepend">
+      <span class="input-group-text" for="formTitre">Title</span>
+    </div>
+    <input type="text" class="form-control" formControlName="titre" id="formTitre">
   </div>
-  <div class="form-group row">
-    <label for="formEmail">Email :</label>
-    <input type="email" formControlName="email" id="formEmail">
+
+  <div class="input-group mb-1">
+    <div class="input-group-prepend">
+      <span class="input-group-text" for="formEmail">Email</span>
+    </div>
+    <input type="email" class="form-control" formControlName="email" id="formEmail">
   </div>
-  <div class="form-group row">
-    <label for="formDescription">Description</label>
-    <input type="text" formControlName="description" id="formDescription">
+
+  <div class="input-group mb-1">
+    <div class="input-group-prepend">
+      <span class="input-group-text" for="formDescription">description</span>
+    </div>
+    <textarea class="form-control" formControlName="description" id="formDescription"></textarea>
   </div>
-  <div class="form-group row">
-    <label for="formType">Type :</label>
-    <select formControlName="type" id="formType">
+
+  <div class="input-group mb-1">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="formType">Type</label>
+    </div>
+    <select class="custom-select" id="formType"formControlName="type">
+      <option selected>Choose...</option>
       <option>BUG</option>
       <option>FEATURE</option>
     </select>
   </div>
-  <div class="form-group row">
-    <label for="formLevel">Level :</label>
-    <select formControlName="level" id="formLevel">
+
+  <div class="input-group mb-1">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="formLevel">Level</label>
+    </div>
+    <select class="custom-select" id="formLevel" formControlName="level">
+      <option selected>Choose...</option>
       <option>ERROR</option>
       <option>FATAL</option>
       <option>MEDIUM</option>
       <option>MINOR</option>
     </select>
   </div>
-  <div class="form-group row">
-    <label for="formProgress">Progress :</label>
-    <input type="number" formControlName="progress" id="formProgress" min="1" max="100">
-  </div>
 
-  <button type="submit">Add</button>
+  <div class="input-group mb-1">
+    <div class="input-group-prepend">
+      <span class="input-group-text" for="formProgress">Progress</span>
+    </div>
+    <input type="number" class="form-control" formControlName="progress" id="formProgress">
+  </div>
+  <button class="m-2 btn btn-group-sm btn-success" type="submit">Add</button>
+
 </form>
+

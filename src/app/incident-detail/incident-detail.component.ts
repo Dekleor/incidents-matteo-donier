@@ -12,7 +12,8 @@ export class IncidentDetailComponent implements OnInit {
 
   incident: Incident;
 
-  constructor(private detailIncident: IncidentHttpService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private detailIncident: IncidentHttpService, private activatedRoute: ActivatedRoute, private router: Router) {
+  }
 
   getIncident(): void {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
@@ -28,6 +29,10 @@ export class IncidentDetailComponent implements OnInit {
   }
 
   closeIncident(): void {
-    this.incident.open = false;
+    if (this.incident.open === true) {
+      const update = this.incident.open = false;
+      const id = this.activatedRoute.snapshot.paramMap.get('id');
+      this.detailIncident.updateIncident(Number(id), update).subscribe();
+    }
   }
 }

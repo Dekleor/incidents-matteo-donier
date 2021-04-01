@@ -21,7 +21,8 @@ export class IncidentAddComponent implements OnInit {
       description: ['', [Validators.minLength(10), Validators.maxLength(100)]],
       level: ['', Validators.required],
       type: ['', Validators.required],
-      progress: ['', Validators.required]
+      progress: ['', Validators.required],
+      open: [true]
     });
   }
 
