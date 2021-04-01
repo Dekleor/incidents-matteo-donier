@@ -16,12 +16,12 @@ export class IncidentAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.newIncident = this.fb.group({
-      titre: ['', [Validators.minLength(2), Validators.maxLength(10)]],
-      email: ['', Validators.required],
-      description: ['', [Validators.minLength(10), Validators.maxLength(100)]],
+      titre: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(10)]],
+      email: ['', [Validators.required, Validators.email]],
+      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
       level: ['', Validators.required],
       type: ['', Validators.required],
-      progress: ['', Validators.required],
+      progress: ['', [Validators.required, Validators.min(0), Validators.max(100)]],
       open: [true]
     });
   }
