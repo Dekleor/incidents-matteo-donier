@@ -1,0 +1,13 @@
+<ul class=" list-group mt-4">
+  <li class="list-group-item"><b>Title:</b><br> {{incident?.titre}}</li>
+  <li class="list-group-item"><b>Creator's Email:</b><br> {{incident?.email}}</li>
+  <li class="list-group-item"><b>Type:</b><br> {{incident?.type}}</li>
+  <li class="list-group-item"><b>Level:</b><br> {{incident?.level}}</li>
+  <li class="list-group-item"><b>Created on:</b><br> {{incident?.dateCreation}}</li>
+  <li class="list-group-item"><b>Description:</b><br> {{incident?.description}}</li>
+  <p><ngb-progressbar type="info" [value]="incident?.progress" [striped]="true" [animated]="true"><i>{{incident?.progress}} %</i></ngb-progressbar></p>
+</ul>
+
+<button (click)="closeIncident()" class="btn btn-success btn-sm>">Close</button>
+<button (click)="delete()" class="btn btn-danger btn-sm">Delete</button>
+<button [routerLink]="['home']" class="btn btn-primary btn-sm">Back</button>

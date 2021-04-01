@@ -1,0 +1,69 @@
+<h3>Add ticket</h3>
+<ul *ngIf="submitted">
+  <li *ngIf="newIncident.controls['titre']?.errors?.minLength"> Please enter a title with at least 2 characters</li>
+  <li *ngIf="newIncident.controls['titre']?.errors?.maxLength"> Please enter a title with less than 10 characters</li>
+  <li *ngIf="newIncident.controls['email']?.errors?.required"> Please enter your email address</li>
+  <li *ngIf="newIncident.controls['description']?.errors?.minLength"> Please enter a description with at least 10 characters</li>
+  <li *ngIf="newIncident.controls['description']?.errors?.maxLength"> Please enter a description with less than 100 characters</li>
+  <li *ngIf="newIncident.controls['level']?.errors?.required"> Level is required</li>
+  <li *ngIf="newIncident.controls['type']?.errors?.required"> Type is required</li>
+  <li *ngIf="newIncident.controls['progress']?.errors?.required"> % of progress is required</li>
+</ul>
+
+<form [formGroup]="newIncident" (ngSubmit)="submitForm()">
+
+  <div class="input-group mb-1">
+    <div class="input-group-prepend">
+      <span class="input-group-text" for="formTitre">Title</span>
+    </div>
+    <input type="text" class="form-control" formControlName="titre" id="formTitre">
+  </div>
+
+  <div class="input-group mb-1">
+    <div class="input-group-prepend">
+      <span class="input-group-text" for="formEmail">Email</span>
+    </div>
+    <input type="email" class="form-control" formControlName="email" id="formEmail">
+  </div>
+
+  <div class="input-group mb-1">
+    <div class="input-group-prepend">
+      <span class="input-group-text" for="formDescription">description</span>
+    </div>
+    <textarea class="form-control" formControlName="description" id="formDescription"></textarea>
+  </div>
+
+  <div class="input-group mb-1">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="formType">Type</label>
+    </div>
+    <select class="custom-select" id="formType"formControlName="type">
+      <option selected>Choose...</option>
+      <option>BUG</option>
+      <option>FEATURE</option>
+    </select>
+  </div>
+
+  <div class="input-group mb-1">
+    <div class="input-group-prepend">
+      <label class="input-group-text" for="formLevel">Level</label>
+    </div>
+    <select class="custom-select" id="formLevel" formControlName="level">
+      <option selected>Choose...</option>
+      <option>ERROR</option>
+      <option>FATAL</option>
+      <option>MEDIUM</option>
+      <option>MINOR</option>
+    </select>
+  </div>
+
+  <div class="input-group mb-1">
+    <div class="input-group-prepend">
+      <span class="input-group-text" for="formProgress">Progress</span>
+    </div>
+    <input type="number" class="form-control" formControlName="progress" id="formProgress">
+  </div>
+  <button class="m-2 btn btn-group-sm btn-success" type="submit">Add</button>
+
+</form>
+

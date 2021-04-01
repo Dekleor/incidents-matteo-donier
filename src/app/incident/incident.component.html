@@ -1,0 +1,17 @@
+<div class="card" style="width: 18rem;" [ngClass]="{
+ 'closed': incident.open === false,
+ 'fatal': incident.level === 'FATAL',
+ 'error': incident.level === 'ERROR',
+ 'medium': incident.level === 'MEDIUM',
+ 'minor': incident.level === 'MINOR'
+}">
+  <div class="card-body">
+    <h5 class="card-title">{{incident?.titre}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{incident?.id}}</h6>
+    <p class="card-text">Type: {{incident?.type}}</p>
+    <p class="card-text">Level: {{incident?.level}}</p>
+    <p class="card-text">Created on : {{incident.dateCreation}}</p>
+    <p><ngb-progressbar type="info" [value]="incident?.progress" [striped]="true" [animated]="true"><i>{{incident?.progress}}</i></ngb-progressbar></p>
+    <button class="btn btn-primary btn-sm" [routerLink]="['/incidents', incident.id]">See more</button>
+  </div>
+</div>
